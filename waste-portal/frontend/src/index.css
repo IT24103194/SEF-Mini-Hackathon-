@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-mist dark:border-mist-dark;
+  }
+  
+  body {
+    @apply bg-paper text-ink antialiased transition-colors duration-300;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Dark mode body */
+  .dark body {
+    @apply bg-paper-dark text-ink-light;
+  }
+}
+
+@layer components {
+  /* Ticket Perforation Effect */
+  .ticket-perforation {
+    position: relative;
+  }
+  
+  .ticket-perforation::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-image: linear-gradient(to bottom, #D8E0D3 50%, transparent 50%);
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
+  }
+
+  .dark .ticket-perforation::before {
+    background-image: linear-gradient(to bottom, #2A3532 50%, transparent 50%);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md dark:bg-paper-dark/80;
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-forest to-turmeric bg-clip-text text-transparent;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-paper dark:bg-paper-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-forest/30 rounded-full hover:bg-forest/50 dark:bg-forest-light/30 dark:hover:bg-forest-light/50;
+  }
+
+  /* Focus Styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-forest/20 focus:border-forest dark:focus:ring-forest-light/20 dark:focus:border-forest-light;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
