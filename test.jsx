@@ -14,3 +14,6 @@ const Sample = () => {
 };
 
 export default Sample;
+
+
+//code edited
