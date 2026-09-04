@@ -3,7 +3,7 @@ const Sample = () => {
 
   return (
     <div>
-      <h1>Sample Component</h1>
+      <h1>Sample Component .</h1>
       <ul>
         {items.map((item) => (
           <li key={item}>{item}</li>
